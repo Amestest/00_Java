@@ -1,0 +1,28 @@
+package sup1.model;
+
+public class Score {
+//필드
+	private int kor;
+	private int eng;
+	private int math;
+	private int sum;
+	private double avg;
+//메서드
+	//필수 생성자
+	public Score(int kor, int eng, int math, int sum, double avg) {
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.avg = avg;
+	}
+	//void 점수
+	public void Score() {
+		
+		//평균 50점 이상이면 합격
+		//삼항연산자로 합격 불합격
+		//각 점수가 50 이상 평균 50점 이상
+		//출력문으로 국어영어 수학점수
+		//삼항연산자에 대하 ㄴ결과 출력
+		System.out.println();
+	}
+}

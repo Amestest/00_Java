@@ -1,0 +1,14 @@
+package com.kh.ThreadEx;
+
+public class Main {
+	public static void main(String[] args) {
+		ThreadEx  스레드 = new ThreadEx();
+		스레드.start();
+		
+		System.out.println("1차 스레드 끝 EX2 스레드 시작1");
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,8 @@
+package sup2.controller;
+
+public class TestSup2 {
+//Scanner 를 이용해서 이름 학년 반 번호 성별 성적
+	
+	Student 학생 = new Student(이름,학년,반,번호,성별,성적);
+	학생.정보();
+}

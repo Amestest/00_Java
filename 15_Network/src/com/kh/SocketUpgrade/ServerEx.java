@@ -1,0 +1,115 @@
+package com.kh.SocketUpgrade;
+
+
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.io.*;
+
+public class ServerEx {
+	
+	private static final int SERVER_PORT = 12145; //포트
+	private static final int SERVER_SPACE = 50; //12345에 입장할 수 잇는 인원수
+	private static final Socket[] clientSockets = new Socket[SERVER_SPACE];
+	private static ServerSocket serverSocket;
+
+	public static void main(String[] args) throws Exception {
+
+		serverSocket = new ServerSocket(SERVER_PORT);
+		System.out.println("TCP Server started.");
+
+		Thread serverAcceptThread = new Thread(() -> {
+			int i = 0;
+			while (true) {
+				try {
+					//초대한 사람들이 들어오고 있는지 대기중
+					System.out.println("Waiting for clients...");
+					
+					clientSockets[i] = serverSocket.accept();
+					//한명이라도 접속을 하면 접속했다라는 문구를 보여줌
+					System.out.println("Client connected: " + clientSockets[i].getInetAddress().getHostAddress());
+					
+					
+					// 방문자가 주최자한테 메세지를 받을 수 있는 그릇을 생성
+					if (clientSockets[i] != null && clientSockets[i].isConnected()) {
+						ClientToServerThread clientHandler = new ClientToServerThread(i);
+						clientHandler.start();
+					}
+					//메모리관리 사람들이 순차적으로 접속할 수 있도록 해줌
+					i = (i + 1) % clientSockets.length;
+				} catch (IOException e) {
+					serverSocket = null;
+					break;
+				}
+			}
+
+		});
+		serverAcceptThread.start();
+		
+		//주최자가 방문자한테 메세지를 보낼 수 있도록 메세지가 담겨져서 갈 수 있는 그릇 생성
+		ServerToClientThread serverToClientThread = new ServerToClientThread();
+		serverToClientThread.start();
+	}
+
+	static class ServerToClientThread extends Thread {
+		@Override
+		public void run() {
+			super.run();
+			try {
+				while (true) {
+					BufferedReader br = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+					String input = br.readLine();
+					// exit 라는 글자가 들어오면 주최자가 열어놓은 파티 종료
+					if (input.equals("finish")) {
+						System.out.println("Server off... Goodbye!");
+						for (Socket socket : clientSockets) {
+							if (socket != null) {
+								socket.close();
+							}
+						}
+						serverSocket.close();
+						break;
+					}
+					//주최한 공간에 참석한 참석자를 차례대로 찾아서 전송
+					for (Socket clientSocket : clientSockets) {
+						if (clientSocket != null && clientSocket.isConnected()) {
+							OutputStream out = clientSocket.getOutputStream();
+							PrintWriter writer = new PrintWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8),
+									true);
+							writer.println(input);
+						}
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	static class ClientToServerThread extends Thread {
+		private final int index;
+		private final InputStream in;
+		private final BufferedReader reader;
+
+		ClientToServerThread(int index) throws IOException {
+			this.index = index;
+			this.in = clientSockets[index].getInputStream();
+			this.reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+		}
+
+		@Override
+		public void run() {
+			super.run();
+			while (true) {
+				try {
+					// 방문자로부터 받은 메세지를 전달받아 글자로 확인
+					String message = reader.readLine();
+					System.out.println("Message from client: " + message);
+				} catch (IOException e) {
+					System.out.printf("Client[%d] disconnected.\n", index);
+					clientSockets[index] = null;
+					break;
+				}
+			}
+		}
+	}
+}

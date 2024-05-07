@@ -1,0 +1,9 @@
+package com.kh.DeQueEx;
+/*
+ Deque(덱) 
+  	양쪽 끝에서 삽입과 삭제가 모두가능
+  
+  */
+public class DeQueEx {
+
+}

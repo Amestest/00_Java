@@ -1,0 +1,11 @@
+package com.hk.test.main.oop;
+
+public class Main {
+	//최종으로 실행할 메인 메서드 정말 내가 실행하고자하는 파일과 코드만 작성
+	public static void main(String[] args) {
+		
+		Dog 해피 = new Dog();
+		
+		Dog 러브 = new Dog();
+	}
+}

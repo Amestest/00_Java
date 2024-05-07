@@ -1,0 +1,6 @@
+package com.hk.test.main.oop;
+
+//동물 하나만 상속 implements
+public class Dog implements Animal{
+
+}

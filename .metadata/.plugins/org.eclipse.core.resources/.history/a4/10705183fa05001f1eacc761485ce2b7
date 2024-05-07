@@ -1,0 +1,115 @@
+package com.kh.SocketUpgrade;
+
+import java.nio.charset.StandardCharsets;
+import java.net.*;
+import java.io.*;
+
+public class ClientEx {
+	private static boolean isRunning;
+	private static Socket clientSocket = null;
+	private static final int SERVER_PORT = 12345;//서버가 열어놓은 포트번호 서버 = 클라이언트 포트 같아야함
+
+	public static void main(String[] args) {
+		String serverHostname = "127.0.0.1"; // 우리집주소 = localhost = 127.0.0.1
+		isRunning = true;
+		Thread serverThread = new Thread(() -> {
+			// 서로 다른 쓰레드에서 동작한다
+			ServerToClientThread serverToClientThread = null;
+			ClientToServerThread clientToServerThread = null;
+
+			while (isRunning) {
+				if (clientSocket == null) {
+					try {
+						System.out.println("Server finding...");
+						clientSocket = new Socket(serverHostname, SERVER_PORT);
+						if (clientSocket.isConnected()) {
+							System.out.println("Connected to server.");
+							serverToClientThread = new ServerToClientThread();
+							serverToClientThread.start();
+							clientToServerThread = new ClientToServerThread();
+							clientToServerThread.start();
+						}
+					} catch (IOException e) {
+						System.out.println("Failed to connect to server. Retrying...");
+						if (serverToClientThread != null) {
+							serverToClientThread.setFlag(false);
+						}
+						if (clientToServerThread != null) {
+							clientToServerThread.setFlag(false);
+						}
+					}
+				}
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException ignored) {
+				}
+			}
+		});
+		serverThread.start();
+
+	}
+
+	static class ClientToServerThread extends Thread {
+		private boolean flag = true;
+		private final OutputStream out;
+		private final BufferedReader br;
+
+		ClientToServerThread() throws IOException {
+			out = clientSocket.getOutputStream();
+			br = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+		}
+
+		@Override
+		public void run() {
+			super.run();
+			while (flag) {
+				try {
+					String input = br.readLine();
+					if (input.equals("exit")) {
+						System.out.println("Client Off... Goodbye!");
+						clientSocket = null;
+						isRunning = false;
+						break;
+					}
+					PrintWriter writer = new PrintWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8), true);
+					writer.println(input);
+				} catch (IOException e) {
+					System.out.println("Failed to send message.");
+				}
+			}
+		}
+
+		public void setFlag(boolean flag) {
+			this.flag = flag;
+		}
+	}
+
+	static class ServerToClientThread extends Thread {
+		private boolean flag = true;
+		private final BufferedReader reader;
+
+		public ServerToClientThread() throws IOException {
+			InputStream in = clientSocket.getInputStream();
+			reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+		}
+
+		@Override
+		public void run() {
+			super.run();
+			while (flag) {
+				try {
+					String response = reader.readLine();
+					System.out.println("Response from server: " + response);
+				} catch (IOException e) {
+					System.out.println("Disconnected from server.");
+					clientSocket = null;
+					break;
+				}
+			}
+		}
+
+		public void setFlag(boolean flag) {
+			this.flag = flag;
+		}
+	}
+}

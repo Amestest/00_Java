@@ -1,0 +1,37 @@
+package com.kh.SkocketEx;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+//대화 시작하는 대화 주체자
+public class ServerEx {
+	public static void main(String[] args) {
+		//대화 주체자는 나의 집 주소와 우리집에 어떻게 들어올지 들어오는 경로(포트번호)생성
+		//서버 측의 포트 번호를 지정해서 ServerSocket 생성
+		
+		
+		try {
+			
+			ServerSocket 주최자 = new ServerSocket(12348);
+			
+			//System.out.println("주최자 측 번호가 열렸습니다.");
+			System.out.println("party chat opeen");
+			// 우리집에 방문하는 손님의 연결을 수락
+			
+			Socket 방문자 = 주최자.accept();
+			System.out.println("client success"); //집 문 열어줌을 확인
+			
+			방문자.close();
+			주최자.close();
+			
+			
+			
+		} catch (IOException e) {
+			
+			
+			e.printStackTrace();
+		
+		}
+	}
+}

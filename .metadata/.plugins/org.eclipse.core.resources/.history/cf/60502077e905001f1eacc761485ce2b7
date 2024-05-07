@@ -1,0 +1,20 @@
+package com.kh.StackEx;
+
+import java.util.Stack;
+
+/*
+ Stack(스택)
+  	데이터를 저장하는 자료구조
+  	LIFO Last In - First_Out   : 마지막에 추가된 항몽이 먼저 제거
+  	뒤로 가기 기능, 실행 취소 기능
+  	
+  
+  */
+public class StackEx {
+	public static void main(String[] args) {
+		Stack<Integer> 스택 = new Stack<>();
+		
+		스택.add(1);
+		스택.add(2);
+	}
+}

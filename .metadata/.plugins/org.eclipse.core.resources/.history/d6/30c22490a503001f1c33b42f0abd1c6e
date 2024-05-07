@@ -1,0 +1,12 @@
+package com.kh.practice.charCheck.controller;
+
+public class CharacterController {
+	public CharacterController() {
+		
+		
+	}
+	
+	//문자열이 비어잇을 때 예외상황 문구 만들기
+
+	public int countAlpha(String s)
+}

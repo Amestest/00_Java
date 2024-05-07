@@ -1,0 +1,13 @@
+package sup2.controller;
+
+import java.util.Scanner;
+
+import sup2.model.Student;
+
+public class TestSup2 {
+//Scanner 를 이용해서 이름 학년 반 번호 성별 성적
+	Scanner sc = new Scanner(System.in);
+	
+	Student 학생 = new Student(String 이름, int 학년, int 반, int 번호, char 성별, double 성적);
+	Student.정보();
+}

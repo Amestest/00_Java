@@ -1,0 +1,19 @@
+package com.kh.ThreadEx;
+
+public class Main {
+	public static void main(String[] args) {
+		ThreadEx  스레드 = new ThreadEx();
+		스레드.start();
+		
+		System.out.println("1차 스레드 끝 EX2 스레드 시작1");
+		
+		//for 총 3개의 스레드를 생성해서 실행
+		
+		for(int i = 0; i < 3; i++) {
+			Thread t = new ThreadEx2(i);
+			t.start();
+		}
+		System.out.println("메인 끝~~~!");
+		
+	}
+}

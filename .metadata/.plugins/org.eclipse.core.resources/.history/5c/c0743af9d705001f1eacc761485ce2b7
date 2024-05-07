@@ -1,0 +1,30 @@
+package com.kh.SkocketEx;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerPre {
+	public static void main(String[] args) {
+	
+		
+		try {
+			ServerSocket a = new ServerSocket(12352);
+			System.out.println("party chat open");
+			
+			Socket b = a.accept();
+			System.out.println("client success");
+			
+			BufferedReader in = new BufferedReader(new InputStreamReader(b.getInputStream()));
+			
+			PrintWriter out = new PrintWriter(b.getOutputStream(),true);
+			
+			
+		} catch (IOException e) {
+			
+			
+			e.printStackTrace();
+		
+		}
+	}
+}

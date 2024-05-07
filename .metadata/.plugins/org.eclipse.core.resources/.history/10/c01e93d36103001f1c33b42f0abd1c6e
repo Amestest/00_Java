@@ -1,0 +1,78 @@
+package com.kh.imageEx;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class ImagePR2 {
+	//바탕화면에 이미지폴더 / 동물이름.txt 파일 만들어준 후
+	//동물이름 소 고양이 돼지 토끼 호랑이 이름을 \n 작성해서 만들어주고
+	//동물이름을 만들어 준 다음에
+	//좋아하는 동물이름으로 폴더 이름 변경한 다음
+	//삭제하기
+	public static void main(String[] args) {
+		
+		/*
+		File 이미지폴더만들기 =  new File("c:/Users/user1/Desktop/이미지폴더");
+		
+		System.out.println("존재함? : "+ 이미지폴더만들기.exists());
+		if(이미지폴더만들기.exists()) {
+			System.out.println("폴더가 이미 존재합니다.");
+		} else {
+			이미지폴더만들기.mkdir();
+			System.out.println("새로 폴더만듦 성공");
+			System.out.println(이미지폴더만들기.getName());
+			System.out.println(이미지폴더만들기.getPath());
+		}
+	
+		File 텍스트 = new File("c:/Users/user1/Desktop/이미지폴더/동물이름.txt");
+		
+		if(텍스트.exists()) {
+			System.out.println("파일이 존재");
+		}else {
+			try {
+				텍스트.createNewFile();
+				System.out.println(텍스트.getName() + "파일 생성");
+			} catch (IOException e) {
+				System.out.println("파일만들기 실패");
+				e.printStackTrace();
+			}
+		}
+		
+		 
+		try {
+			
+			FileWriter 글쓰기 = new FileWriter("동물이름.txt");
+			
+			글쓰기.write("소\n  고양이\n 돼지\n 토끼\n 호랑이\n");
+			
+			글쓰기.close();
+			System.out.println("글쓰기 완료");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	*/
+		String 폴더경로 =System.getProperty("user.hom") + "/Desktop";
+		
+		File 이미지폴더 = new File(폴더경로 +"이미지폴더");
+		
+		//만약에 이미지가 존재하는지 존재하지 않는지 확인
+		이미지폴더.mkdir(); //이미지폴더 1개 생성
+		
+		//동물이름.txt 파일 생성후 동물이름 작성
+												// , true 이어서 작성하기
+		try {
+			
+			FileWriter 글쓰기 = new FileWriter(이미지폴더+"동물이름.txt");
+			
+			글쓰기.write("소\n고양이\n돼지\n토끼\n호랑이");
+			System.out.println("동물이름 파일에 이름이 작성되었습니다.");
+			// 글쓰기 작업이 완료되었습니다.
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+	}
+}

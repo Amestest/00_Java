@@ -1,0 +1,16 @@
+package com.kh.test.main;
+
+public class Test8 {
+	public static void main(String[] args) {
+		// 삼항연산자 익히기
+		
+		//두 수 중 큰 수 구하기
+		
+		int 숫자1 = 10;
+		int 숫자2 = 20;
+		
+		String 더큰수 = (숫자1 > 숫자2) ? "숫자1이 더큼" : "숫자2가 더 큼";
+		System.out.println(더큰수);
+	
+	}
+}

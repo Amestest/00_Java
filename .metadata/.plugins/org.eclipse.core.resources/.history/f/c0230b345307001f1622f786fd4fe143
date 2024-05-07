@@ -1,0 +1,7 @@
+package com.hk.test.main.oop;
+
+//동물 하나만 상속 implements
+//동물에서 소리를 만드는 makeSound 가 재사용되고 있지 않기 때문에
+public class Dog implements Animal{
+
+}

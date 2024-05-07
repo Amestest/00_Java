@@ -1,0 +1,10 @@
+package com.kh.test.main;
+
+public class Test9 {
+	public static void main(String[] args) {
+		String[] 요일 = {"월","화","수"};
+		for(String 날짜 : 요일) {
+			System.out.println(날짜);
+		}
+	}
+}

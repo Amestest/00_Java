@@ -1,0 +1,18 @@
+package com.kh.variable.pre;
+
+public class EnumPre {
+// enum 무지개{빨~보}
+	public enum 무지개{
+		빨,
+		주,
+		노,
+		초,
+		파,
+		남,
+		보,
+		
+	}
+	//main
+		// 빨~보 출력
+	
+}

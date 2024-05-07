@@ -1,0 +1,20 @@
+package com.kh.SkocketEx;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class ServerPre {
+	public static void main(String[] args) {
+	
+		
+		try {
+			ServerSocket a = new ServerSocket(12352);
+			System.out.println("party chat open");
+		} catch (IOException e) {
+			
+			
+			e.printStackTrace();
+		
+		}
+	}
+}

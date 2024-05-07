@@ -1,0 +1,12 @@
+package com.kh.test.main;
+
+public class Test3 {
+	public static void main(String[] args) {
+		//switch case 문 실행해보기
+		
+		
+		Scanner 스캐너 = new Scanner(System.in);
+		System.out.println("숫자 작성");
+		int 날짜 = 스캐너.nextInt(); //숫자를 받는 스캐너 작성
+	}
+}

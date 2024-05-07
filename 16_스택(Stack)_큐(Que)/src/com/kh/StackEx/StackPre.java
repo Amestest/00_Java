@@ -1,0 +1,39 @@
+package com.kh.StackEx;
+
+import java.util.Stack;
+
+public class StackPre {
+	//main 메인메서드에서 예서 작서
+	
+	public static void main(String[] args) {
+	
+		
+	//Stack 을 활용해서 10 30 50 40 20 을 넣고 push 사용
+	//pop 맨 위값을 지우고 반환해서 확인
+	//peek 현재 맨 위 값 확인
+	//isEmpty 비어있는지 확인
+	//size 크기는 몇인지 확인
+	Stack<Integer> 스택예제 = new Stack<>();
+	
+	스택예제.add(10);
+	스택예제.add(30);
+	스택예제.add(50);
+	스택예제.add(40);
+	스택예제.add(20);
+	
+	System.out.println(스택예제);
+	
+	int 맨위 = 스택예제.pop();
+	System.out.println(맨위);
+	
+	int 숫자확인 = 스택예제.peek();
+	System.out.println(숫자확인);
+	
+	boolean isEmpty = 스택예제.isEmpty();
+	System.out.println(isEmpty);
+	int 사이즈 = 스택예제.size();
+	System.out.println(사이즈);
+	
+	
+	}
+}

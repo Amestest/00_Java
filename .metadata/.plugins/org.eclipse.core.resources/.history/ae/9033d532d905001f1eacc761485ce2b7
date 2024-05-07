@@ -1,0 +1,26 @@
+package com.kh.SkocketEx;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+public class ClientPre {
+	public static void main(String[] args) {
+		
+		Socket c = new Socket("localhost", 12352);
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+		
+		PrintWriter out args= new PrintWriter(c.getOutputStream(), true);
+		
+		out.println("hi, server !");
+		
+		String m ;
+		
+		while((m=in.readLine()) != null) {
+			System.out.println("send success : " + m);
+			
+		}
+		
+	}
+}

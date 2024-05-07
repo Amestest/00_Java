@@ -1,0 +1,40 @@
+package com.kh.AddressEX;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class AddressPre {
+	//www.google.com 호스트명과 IP주소 가져오기
+	
+	public static void main(String[] args) {
+		
+		
+		try {
+			
+			InetAddress 구글주소 = InetAddress.getByName("www.google.com");
+			System.out.println("호스트명 : " + 구글주소.getHostName());
+			System.out.println("IP 주소 : " + 구글주소.getHostAddress());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//나의 컴퓨터 이름과 자리번호 확인하기
+		//getlocalhost
+		InetAddress 내집주소;
+		try {
+			
+			내집주소 = InetAddress.getLocalHost();
+			System.out.println("내컴퓨터이름과 자리번호 확인하기" : 내집주소);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("나의 집주소 : " + 내집주소);
+		
+		
+		
+	}
+	
+	
+}

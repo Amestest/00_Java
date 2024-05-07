@@ -1,0 +1,14 @@
+package com.kh.StackEx;
+
+public class QueuePre {
+	//maint
+	
+	
+	// offer 80 60 30 20
+	
+	// poll 데이터 확인 및 제거
+	
+	// peek 맨 앞 데이터 확인
+	
+	//isEmpty 비어있는지 확인
+}

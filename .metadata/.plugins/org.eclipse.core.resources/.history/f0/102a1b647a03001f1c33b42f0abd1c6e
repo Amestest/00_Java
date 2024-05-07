@@ -1,0 +1,46 @@
+package com.kh.variable.ex;
+/*
+  
+Enum(열거형) 
+列 : 나열하다 벌리다 열 늘어서다 열
+擧 : 들거나 일으키거나 행하는 거
+늘어서 작성해놓은 것을 행함
+
+변수명을 나열해놓은 것 상수(상시적으로 거정된 이름)
+
+메서드
+	values() 			  : Enum에 적어놓은 모든 상수를 배열로 반환
+	valueOf(String 이름)   : 이름과 일치하는 Enum 상수를 반환
+	ordinal() 			  : Enum 상수의 순서를 전달
+	name() 				  : Enum 상수의 이름 반환
+	compareTo(EnumType e) : 다른 Enum 상수와 순서 비교
+	toString()			  : Enum 상수의 문자열 표현 반환
+	getClass() 			  : Enum 클래스의 Class 객체 반환
+*/
+public class EnumEx {
+
+	
+	public enum 날짜들{
+		월요일,
+		화요일,
+		수요일,
+		목요일,
+		금요일,
+		토요일,
+		일요일,
+	}
+	
+	
+	public enum 계절{
+		봄, 여름, 가을, 겨울
+	}
+	
+	
+	public static void main(String[] args) {
+		//각 요일 출력
+		System.out.println("월요일 : " + 날짜들.월요일);
+		System.out.println("화요일 : " + 날짜들.화요일);
+		System.out.println("수요일 : " + 날짜들.수요일);
+	}
+	
+}

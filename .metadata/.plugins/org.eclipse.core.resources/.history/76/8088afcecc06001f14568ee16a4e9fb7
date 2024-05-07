@@ -1,0 +1,8 @@
+package ncs.test10;
+
+public class BookStore {
+//메인 메서드
+	public static void main(String[] args) {
+		Book 책정보 = new Book("HTML5", 3000.0, 15.0);
+	}
+}

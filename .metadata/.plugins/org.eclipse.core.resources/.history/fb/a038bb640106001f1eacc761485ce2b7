@@ -1,0 +1,33 @@
+package com.kh.PropertiesEx;
+
+import java.util.Properties;
+
+/*
+ Properties = 속성, 설정 필히 넣어야하는 값을 작성 
+  
+  Map이랑 비슷한 형태의 데이터를 관리하는데 사용
+  
+  key(키)와 value(값) 으로 이루어져 있음
+  
+  키와 값이 숫자가 아니라 문다열인 형태로 가지고 있음
+  
+  메서드
+  	setProperty(String key, String value) : 지정된 키와 값으로 맵에 항목을 추가
+  	getProperty(String key) : 저이진 키에 대한 값을 반환
+  	getProperty(String key, string value) : 주어진 키에 대한 값을 전달하지만, 해당 키가 없을 경우에는 기본값을 반환
+  	load(InputStream in) : 입력 스트림에서 속성 목록ㅇ르 읽어옴
+  	stroe(OutputStream out, String comment) : 출력 스트림에서 속성 목록을 저장
+  	
+  properties 의 경우에는 프로그램이나 코드를 실행할 때 필수로 설정해줘야하는 내용을 작성한 후
+  코드가 아니라 파일로 주로 존재 
+  
+  map 은 주로 데이터를 다루지만 properties 의 경우 인증키나 회원 인증번호를 보내기 위해서 인증을 위해 필요한 내용을 작성해놓는 공간
+  
+  
+  */
+public class PropertiesEx {
+	public static void main(String[] args) {	
+		//Properties 객체 생성
+		Properties 설정 = new Properties();
+	}
+}

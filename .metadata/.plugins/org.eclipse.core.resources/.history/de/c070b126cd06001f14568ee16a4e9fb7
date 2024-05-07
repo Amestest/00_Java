@@ -1,0 +1,12 @@
+package ncs.test10;
+
+public class BookStore {
+//메인 메서드
+	public static void main(String[] args) {
+		Book 책정보;
+		BookUpdate 정보수정;
+		
+		책정보 = new Book("IT","HTML5", 30000.0,15.0);
+		
+	}
+}

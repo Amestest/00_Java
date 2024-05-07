@@ -1,0 +1,33 @@
+package com.kh.SkocketEx;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+//파티참가자
+public class ClientEx {
+	public static void main(String[] args) {
+		
+		
+		
+		try {
+			//				localhost = 127.0.0.1은 내컴퓨터주소라는 의미
+			//						접속하고자 하는 컴퓨터 주소 서버의 포트번호
+			Socket 참가자 = new Socket("localhost", 12348);
+			
+			//주최자와 대화를 하기 위한 입출력 스트림 생성
+			//1. 참가자.getInputStream() : 참가자가 작성한 데이터를 읽어오기 위한 입력 스트림을 가져옴(숫자값으로 대화를 가져옴)
+			//2. InputStreamReader : 하나씩된 단어들을 숫자에서 문자로 변환하는데 사용
+			BufferedReader in = new BufferedReader(new InputStreamReader(참가자.getInputStream()));
+			
+			
+			
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		
+		}
+	}
+}

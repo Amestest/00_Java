@@ -1,0 +1,31 @@
+package com.kh.test.main;
+
+import java.util.Scanner;
+
+public class Test4 {
+	
+	public static void main(String[] args) {
+	/*
+	 1부터 9까지 값을 스캐너로 각각 입력 받아
+	 
+	  더하기 빼기 곱하기 몱 출력하기
+	  
+	  int 숫자1
+	  int 숫자2
+	  */	
+		Scanner 입력 = new Scanner(System.in);
+		
+		int 숫자1 = 입력.nextInt();
+		int 숫자2 = 입력.nextInt();
+		
+		if(입력 < 10;) {
+		int sum = 숫자1 + 숫자2;
+		
+		int dif = 숫자1 - 숫자2;
+		
+		int mul = 숫자1 * 숫자2;
+		
+		int div = 숫자1 / 숫자2;
+		}
+		}
+}

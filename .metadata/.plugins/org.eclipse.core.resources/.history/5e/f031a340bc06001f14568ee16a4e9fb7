@@ -1,0 +1,14 @@
+package sup1.controller;
+
+public class TestSup1 {
+/*
+  
+  
+  
+  
+  
+  */
+  Scanner sc = new Scanner(System.in);
+
+
+}

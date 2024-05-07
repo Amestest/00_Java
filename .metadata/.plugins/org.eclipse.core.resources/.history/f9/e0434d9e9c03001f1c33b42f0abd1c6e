@@ -1,0 +1,11 @@
+package com.kh.MapEx;
+/*
+ TreeMap 이진검색트리 : 데이터 검색 삽입 삭제 연산을 빠르게 가능 
+ 키-값(key-value) 저장하는 자료구조
+ 키를 기준으로 정렬해서 저장 (정렬 : 0-9, ㄱ-ㅎ, A-Z, a-z) 
+  
+  
+  */
+public class TreeMapEx {
+
+}

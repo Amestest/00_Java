@@ -1,0 +1,18 @@
+package com.kh.AddressEX;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class AddressEX3 {
+	public static void main(String[] args) {
+		try {
+			
+			InetAddress 주소이름 = InetAddress.getByName("www.google.com");
+			System.out.println("getByName으로 구글을 가져온 이름 : " +주소이름);
+		} catch (UnknownHostException e) {
+			
+			
+			e.printStackTrace();
+		}
+	}
+}

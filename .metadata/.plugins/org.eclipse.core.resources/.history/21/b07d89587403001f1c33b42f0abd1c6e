@@ -1,0 +1,25 @@
+package com.kh.RunnablePre;
+					//implements Runnable
+public class 러너블연습 implements Runnable{
+//필드 int 초;
+	int 초; 
+	
+//메서드
+	//필수생성자	
+	//void run() sleep 1000초 try catch this.초 "스레드 시작" 
+	//this. 초 "스레드 종료"
+	public void run() {
+		System.out.println(this.초 + "스레드 시작했다");
+		try {
+			
+			Thread.sleep(1000);
+		
+		} catch (InterruptedException e) {
+			
+			
+			e.printStackTrace();
+		}
+		System.out.println(this.초 + "스레드 끝났다");
+	}
+
+}

@@ -1,0 +1,8 @@
+package com.kh.ThreadEx;
+
+public class Main {
+	public static void main(String[] args) {
+		ThreadEx  스레드 = new ThreadEX();
+		스레드.start();
+	}
+}
